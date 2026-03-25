@@ -1,0 +1,16 @@
+services:
+  industrial-viewer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - opcua-demo-server
+
+  opcua-demo-server:
+    build:
+      context: ./server-demo
+      dockerfile: Dockerfile
+    ports:
+      - "4840:4840"
